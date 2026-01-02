@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[Orders]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL,
+	[UserId] UNIQUEIDENTIFIER NOT NULL,
+	[ProductId] UNIQUEIDENTIFIER NOT NULL,
+	[Quantity] INT NOT NULL,
+	[OverallPrice] DECIMAL(18, 2) NOT NULL,
+	[CreatedBy] NVARCHAR(50) NULL,
+	[CreatedOn] DATETIME2 NULL,
+	[LastModifiedBy] NVARCHAR(50) NULL,
+	[LastModifiedOn] DATETIME2 NULL
+	CONSTRAINT [PK_OrderID] PRIMARY KEY CLUSTERED ([Id] ASC),
+	CONSTRAINT [FK_Order_UserID] FOREIGN KEY ([UserId]) REFERENCES [dbo].[Users]([Id]),
+	CONSTRAINT [FK_Order_ProductID] FOREIGN KEY ([ProductId]) REFERENCES [dbo].[Products]([Id])
+)

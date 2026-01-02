@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[Products]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL,
+	[ProductName] NVARCHAR(100) NOT NULL,
+	[OverallStock] INT NOT NULL,
+	[Price] DECIMAL(18, 2) NOT NULL,
+	[Discount] DECIMAL(5, 2) NULL,
+	[CreatedBy] NVARCHAR(50) NULL,
+	[CreatedOn] DATETIME2 NULL,
+	[LastModifiedBy] NVARCHAR(50) NULL,
+	[LastModifiedOn] DATETIME2 NULL
+	CONSTRAINT [PK_ProductID] PRIMARY KEY CLUSTERED ([Id] ASC)
+)

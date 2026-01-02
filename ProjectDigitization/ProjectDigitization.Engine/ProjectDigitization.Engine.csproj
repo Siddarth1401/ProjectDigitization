@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-ProjectDigitization.Engine-4d645fc8-8622-4cb8-befc-901d9304d228</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectDigitization.DataAccess\ProjectDigitization.DataAccess.csproj" />
+    <ProjectReference Include="..\ProjectDigitization.Interfaces\ProjectDigitization.Interfaces.csproj" />
+    <ProjectReference Include="..\ProjectDigitization.Services\ProjectDigitization.Services.csproj" />
+  </ItemGroup>
+</Project>

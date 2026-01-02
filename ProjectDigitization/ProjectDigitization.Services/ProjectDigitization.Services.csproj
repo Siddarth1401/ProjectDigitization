@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectDigitization.DataAccess\ProjectDigitization.DataAccess.csproj" />
+    <ProjectReference Include="..\ProjectDIgitization.Entities\ProjectDIgitization.Entities.csproj" />
+    <ProjectReference Include="..\ProjectDigitization.Interfaces\ProjectDigitization.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

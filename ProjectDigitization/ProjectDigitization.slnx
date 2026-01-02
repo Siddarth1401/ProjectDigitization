@@ -1,0 +1,12 @@
+<Solution>
+  <Project Path="ProjectDigitization.DataAccess/ProjectDigitization.DataAccess.csproj" Id="930767d1-3d3a-401a-ad98-45422de80138" />
+  <Project Path="ProjectDigitization.Database/ProjectDigitization.Database.sqlproj" Id="483fc124-eb78-4374-904e-d23539072810">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="ProjectDigitization.Engine/ProjectDigitization.Engine.csproj" Id="3502cf10-5ec7-4e04-b8e8-1c68db0ddc64" />
+  <Project Path="ProjectDIgitization.Entities/ProjectDIgitization.Entities.csproj" Id="9831befa-05db-44a9-8c7d-1b3acf083db8" />
+  <Project Path="ProjectDigitization.Interfaces/ProjectDigitization.Interfaces.csproj" Id="a54d711e-f0bd-4988-a6ed-c542b7146f84" />
+  <Project Path="ProjectDigitization.Services/ProjectDigitization.Services.csproj" Id="6d44223e-6901-4730-a86a-d4b5ba2c2264" />
+  <Project Path="ProjectDigitization/ProjectDigitization.csproj" />
+</Solution>
