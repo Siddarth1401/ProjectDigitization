@@ -8,6 +8,10 @@ using ProjectDigitization.DataAccess.Repositories;
 using ProjectDigitization.Interfaces.Repository;
 using ProjectDigitization.Interfaces.Services;
 using ProjectDigitization.Services.Services;
+using Serilog.Extensions.Logging;
+using Serilog;
+using ProjectDigitization.Interfaces.Logging;
+using ProjectDigitization.Services.Logging;
 
 public static class Program
 {
@@ -30,6 +34,14 @@ public static class Program
         // DI registrations for repository & service
         builder.Services.AddScoped<IProductsRepository, ProductsRepository>();
         builder.Services.AddScoped<IProductServices, ProductServices>();
+
+        //Logger block
+        Log.Logger = new LoggerConfiguration()
+            .ReadFrom.Configuration(builder.Configuration)
+            .CreateLogger();
+        builder.Host.UseSerilog();
+        builder.Services.AddScoped(typeof(IGenericLogger<>), typeof(GenericLogger<>));
+
 
         var app = builder.Build();
 
