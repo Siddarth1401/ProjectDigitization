@@ -7,9 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="RabbitMQ.Client" Version="7.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ProjectDigitization.DataAccess\ProjectDigitization.DataAccess.csproj" />
     <ProjectReference Include="..\ProjectDIgitization.Entities\ProjectDIgitization.Entities.csproj" />
     <ProjectReference Include="..\ProjectDigitization.Interfaces\ProjectDigitization.Interfaces.csproj" />
+    <ProjectReference Include="..\ProjectDigitization.ViewModels\ProjectDigitization.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

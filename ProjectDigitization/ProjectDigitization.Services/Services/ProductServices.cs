@@ -1,10 +1,13 @@
-﻿using ProjectDigitization.Interfaces.Logging;
+﻿using Microsoft.Extensions.Options;
+using ProjectDigitization.Interfaces.Logging;
 using ProjectDigitization.Interfaces.Repository;
 using ProjectDigitization.Interfaces.Services;
+using ProjectDigitization.ViewModels.ViewModels;
 using ProjectDIgitization.Entities.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json;
 
 namespace ProjectDigitization.Services.Services
 {
@@ -13,11 +16,13 @@ namespace ProjectDigitization.Services.Services
         #region Public variables
         private readonly IProductsRepository _productsRepository;
         private readonly IGenericLogger<ProductServices> _logger;
+        private readonly IOptions<Appsettings> _appsettings;
         #endregion
-        public ProductServices(IProductsRepository productsRepository, IGenericLogger<ProductServices> logger)
+        public ProductServices(IProductsRepository productsRepository, IGenericLogger<ProductServices> logger, IOptions<Appsettings> appsettings)
         {
             _productsRepository = productsRepository;
             _logger = logger;
+            _appsettings = appsettings;
         }
         public async Task<IEnumerable<Products>> GetAllProductsAsync()
         {
@@ -34,6 +39,25 @@ namespace ProjectDigitization.Services.Services
             }
             _logger.LogInformation("GetAllProductsAsync service call ended");
             return products;
+        }
+        public async Task<bool> GetAllProductsAsyncForEngine()
+        {
+            bool isQueueMessageSent = false;
+            try
+            {
+                EngineQueueModel engineQueueModel = new EngineQueueModel()
+                {
+                    Event = "GetAllProducts"
+                };
+                QueueMessageHelper messageHelper = new QueueMessageHelper(_appsettings.Value);
+                await messageHelper.SendQueueMessage(JsonSerializer.Serialize(messageHelper),"projectdigitization");
+                isQueueMessageSent = true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred in GetAllProductsAsyncForEngine service");
+            }
+            return isQueueMessageSent;
         }
     }
 }

@@ -8,5 +8,6 @@
   <Project Path="ProjectDIgitization.Entities/ProjectDIgitization.Entities.csproj" Id="9831befa-05db-44a9-8c7d-1b3acf083db8" />
   <Project Path="ProjectDigitization.Interfaces/ProjectDigitization.Interfaces.csproj" Id="a54d711e-f0bd-4988-a6ed-c542b7146f84" />
   <Project Path="ProjectDigitization.Services/ProjectDigitization.Services.csproj" Id="6d44223e-6901-4730-a86a-d4b5ba2c2264" />
+  <Project Path="ProjectDigitization.ViewModels/ProjectDigitization.ViewModels.csproj" Id="739508a3-2d40-4481-983f-d29581e55dff" />
   <Project Path="ProjectDigitization/ProjectDigitization.csproj" />
 </Solution>

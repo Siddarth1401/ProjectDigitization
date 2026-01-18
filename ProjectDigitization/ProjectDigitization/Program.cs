@@ -12,6 +12,7 @@ using Serilog.Extensions.Logging;
 using Serilog;
 using ProjectDigitization.Interfaces.Logging;
 using ProjectDigitization.Services.Logging;
+using ProjectDigitization.ViewModels.ViewModels;
 
 public static class Program
 {
@@ -30,6 +31,10 @@ public static class Program
         // EF Core DbContext (ensure DefaultConnection exists in appsettings.json)
         builder.Services.AddDbContext<DatabaseContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+        builder.Services.Configure<Appsettings>(builder.Configuration);
+        builder.Services.AddSingleton(builder.Configuration.Get<Appsettings>());
+
 
         // DI registrations for repository & service
         builder.Services.AddScoped<IProductsRepository, ProductsRepository>();

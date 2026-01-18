@@ -8,5 +8,6 @@ namespace ProjectDigitization.Interfaces.Services
     public interface IProductServices
     {
         Task<IEnumerable<Products>> GetAllProductsAsync();
+        Task<bool> GetAllProductsAsyncForEngine();
     }
 }
